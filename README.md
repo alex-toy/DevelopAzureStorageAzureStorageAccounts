@@ -42,3 +42,22 @@
 <img src="/pictures/sas.png" title="shared access signatures"  width="900">
 
 - you can grab the generated url to access that object
+
+
+## Shared Access Signatures - Storage Account Level
+
+- at the storage account level, go to the *Shared Access Signature* section
+<img src="/pictures/sas_storage_account.png" title="shared access signatures - storage account level"  width="900">
+
+- you need to provide the *allowed resource types*. Choose all three (service, container and object)
+
+- in *Microsoft Azure Storage Explorer*, add a connection to Storage Account
+
+- choose *Shared Access Signature*
+<img src="/pictures/sas_storage_account2.png" title="shared access signatures - storage account level"  width="900">
+
+- grab the url from the *Azure Portal* and fill out the form
+<img src="/pictures/sas_storage_account3.png" title="shared access signatures - storage account level"  width="900">
+
+- you should end up connected and able to access data
+<img src="/pictures/sas_storage_account4.png" title="shared access signatures - storage account level"  width="900">
