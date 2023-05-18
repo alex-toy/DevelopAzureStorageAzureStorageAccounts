@@ -68,7 +68,16 @@
 
 ## Stored Access policies
 
-- inside a container, go to the *Access Policy* section adn clic *Add a policy* for *stored Access Policies*
-
-- 
+- inside a container, go to the *Access Policy* section and clic *Add a policy* for *stored Access Policies*
 <img src="/pictures/sap.png" title="stored access policy"  width="900">
+
+
+## Azure Active Directory Authentication
+
+- inside Azure Active Directory, create a user
+
+- inside *Storage Accounts*, add a new reader role
+<img src="/pictures/ad.png" title="azure active directory"  width="900">
+
+- choose a user and give it a role assignment
+<img src="/pictures/ad2.png" title="azure active directory"  width="900">
