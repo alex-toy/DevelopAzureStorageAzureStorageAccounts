@@ -81,3 +81,13 @@
 
 - choose a user and give it a role assignment
 <img src="/pictures/ad2.png" title="azure active directory"  width="900">
+
+- in *Microsoft Azure Storage Explorer*, connect through the newly created user
+
+
+## Creating a Container
+
+- in visual studio, create a console app and install following packages :
+```
+Azure.Storage.Blobs
+```
