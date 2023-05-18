@@ -61,3 +61,14 @@
 
 - you should end up connected and able to access data
 <img src="/pictures/sas_storage_account4.png" title="shared access signatures - storage account level"  width="900">
+
+- notice you can't delete an object, according to your settings an SAS
+<img src="/pictures/sas_storage_account5.png" title="shared access signatures - storage account level"  width="900">
+
+
+## Stored Access policies
+
+- inside a container, go to the *Access Policy* section adn clic *Add a policy* for *stored Access Policies*
+
+- 
+<img src="/pictures/sap.png" title="stored access policy"  width="900">
