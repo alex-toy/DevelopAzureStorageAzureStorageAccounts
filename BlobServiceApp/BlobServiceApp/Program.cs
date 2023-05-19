@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Azure.Storage.Blobs.Models;
+using Azure.Storage.Blobs.Specialized;
+using System;
 using System.Collections.Generic;
 
 namespace BlobServiceApp
@@ -17,8 +19,8 @@ namespace BlobServiceApp
             //blobHelper.CreateContainer(containerName);
 
 
-            string fileName = "C:\\source\\cSharpAzure\\DevelopAzureStorageAzureStorageAccounts\\test.png";
-            blobHelper.UploadBlob(containerName, fileName);
+            //string fileName = "C:\\source\\cSharpAzure\\DevelopAzureStorageAzureStorageAccounts\\test.png";
+            //blobHelper.UploadBlob(containerName, fileName);
 
 
             //string localFilePath = "C:\\source\\cSharpAzure\\DevelopAzureStorageAzureStorageAccounts\\test.png";
@@ -40,15 +42,45 @@ namespace BlobServiceApp
             //blobHelper.GetProperties(containerName, blobName);
 
 
-            string blobName = "ad.png";
-            IDictionary<string, string> metadata = blobHelper.GetMetadata(containerName, blobName);
-            foreach(var item in metadata)
+            //string blobName = "ad.png";
+            //IDictionary<string, string> metadata = blobHelper.GetMetadata(containerName, blobName);
+            //foreach(var item in metadata)
+            //{
+            //    Console.WriteLine($"{item.Key} -> {item.Value}");
+            //}
+
+
+            //IDictionary<string, string> metadata = new Dictionary<string, string>()
+            //{
+            //    { "turnover" , "1M" },
+            //    { "supply chain" , "colibri" }
+            //};
+            //string blobName = "ad.png";
+            //blobHelper.SetMetadata(containerName, blobName, metadata);
+
+
+            //string blobName = "ad.png";
+            //blobHelper.GetProperties(containerName, blobName);
+
+
+            string blobName = "message.txt";
+            BlobLeaseClient lease = blobHelper.AcquireLease(containerName, blobName, 30, out string leaseId);
+            BlobUploadOptions options = new BlobUploadOptions()
             {
-                Console.WriteLine($"{item.Key} -> {item.Value}");
-            }
+                Conditions = new BlobRequestConditions()
+                {
+                    LeaseId = leaseId,
+                }
+            };
+            blobHelper.UploadStringToBlob(containerName, blobName, "hello, this is the message with lease", options);
+            //blobHelper.DropLease(lease);
+            //blobHelper.UploadStringToBlob(containerName, blobName, "hello, this is the message without lease");
 
 
-            Console.ReadKey();
+
+            
+
+            //Console.ReadKey();
         }
     }
 }

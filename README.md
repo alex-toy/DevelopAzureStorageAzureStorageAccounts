@@ -96,6 +96,16 @@ Azure.Storage.Blobs
 ## Metadata
 
 - let's add some metadata to our blob
-<img src="/pictures/metadata.png" title="azure active directory"  width="900">
+<img src="/pictures/metadata.png" title="metadata"  width="900">
+
+- let's retrieve that metadata programatically
+<img src="/pictures/metadata2.png" title="metadata"  width="900">
+
+
+## Storage Lease
+
+- acquire a lease on a blob on the azure portal. A lease acts like a sepaphore
+<img src="/pictures/lease.png" title="lease"  width="900">
+
 
 
