@@ -129,3 +129,15 @@ Azure.Storage.Blobs
 <img src="/pictures/copy_tool3.png" title="Az Copy tool"  width="900">
 <img src="/pictures/copy_tool4.png" title="Az Copy tool"  width="900">
 
+
+## Azure File Share
+
+It's the concept of sharing files between multiple users.
+
+- create a file share
+<img src="/pictures/file_share.png" title="file share"  width="900">
+
+- clic connect and copy the script
+<img src="/pictures/file_share2.png" title="file share"  width="900">
+
+
