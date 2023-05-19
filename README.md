@@ -144,7 +144,7 @@ It's the concept of sharing files between multiple users.
 
 ## Table Storage
 
-### Azure Table Storage
+### Azure Table Storage in the Azure Portal
 
 <img src="/pictures/table_storage.png" title="table storage"  width="900">
 <img src="/pictures/table_storage1.png" title="table storage"  width="900">

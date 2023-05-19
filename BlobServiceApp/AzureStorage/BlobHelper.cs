@@ -6,9 +6,8 @@ using Azure.Storage.Sas;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
 
-namespace BlobServiceApp
+namespace AzureStorage
 {
     public class BlobHelper
     {
