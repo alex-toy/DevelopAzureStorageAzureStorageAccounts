@@ -116,4 +116,16 @@ Azure.Storage.Blobs
 <img src="/pictures/arm.png" title="ARM tempalte"  width="500">
 
 
+## Az Copy tool
+
+- get a SAS 
+<img src="/pictures/copy_tool.png" title="Az Copy tool"  width="900">
+
+- create a container *myfiles*
+<img src="/pictures/copy_tool1.png" title="Az Copy tool"  width="900">
+<img src="/pictures/copy_tool2.png" title="Az Copy tool"  width="900">
+
+- upload file *commands.txt* to container *myfiles*
+<img src="/pictures/copy_tool3.png" title="Az Copy tool"  width="900">
+<img src="/pictures/copy_tool4.png" title="Az Copy tool"  width="900">
 

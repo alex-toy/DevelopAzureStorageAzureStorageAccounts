@@ -1,0 +1,31 @@
+//First create the shared access signature
+
+// To create a container
+.\azcopy make "https://alexeisa.blob.core.windows.net/myfiles?sv=2022-11-02&ss=b&srt=sco&sp=rwdlaciytf&se=2023-05-19T17:11:45Z&st=2023-05-19T09:11:45Z&spr=https&sig=KA1V2mnBU5xIVkPh0KYF8V60fSeF8fC2UW%2FGcmojIa0%3D"
+
+
+// To upload a file
+.\azcopy copy commands.txt "https://alexeisa.blob.core.windows.net/myfiles/commands.txt?sv=2022-11-02&ss=b&srt=sco&sp=rwdlaciytf&se=2023-05-19T17:11:45Z&st=2023-05-19T09:11:45Z&spr=https&sig=KA1V2mnBU5xIVkPh0KYF8V60fSeF8fC2UW%2FGcmojIa0%3D"
+
+
+// To upload a directory
+.\azcopy copy "newdir/*" "https://alexeisa.blob.core.windows.net/myfiles?sv=2022-11-02&ss=b&srt=sco&sp=rwdlaciytf&se=2023-05-19T17:11:45Z&st=2023-05-19T09:11:45Z&spr=https&sig=KA1V2mnBU5xIVkPh0KYF8V60fSeF8fC2UW%2FGcmojIa0%3D"
+
+
+// To upload a directory to a directory in the container
+.\azcopy copy "newdir/*" "https://alexeisa.blob.core.windows.net/myfiles/newdir?sv=2022-11-02&ss=b&srt=sco&sp=rwdlaciytf&se=2023-05-19T17:11:45Z&st=2023-05-19T09:11:45Z&spr=https&sig=KA1V2mnBU5xIVkPh0KYF8V60fSeF8fC2UW%2FGcmojIa0%3D"
+
+
+// To upload a directory and subdirectories to a directory in the container
+.\azcopy copy "newdir/*" "https://alexeisa.blob.core.windows.net/myfiles/newdir?sv=2022-11-02&ss=b&srt=sco&sp=rwdlaciytf&se=2023-05-19T17:11:45Z&st=2023-05-19T09:11:45Z&spr=https&sig=KA1V2mnBU5xIVkPh0KYF8V60fSeF8fC2UW%2FGcmojIa0%3D" --recursive
+
+
+// Download blob myfiles
+.\azcopy copy "https://alexeisa.blob.core.windows.net/myfiles/newdir/Program.cs?sv=2022-11-02&ss=b&srt=sco&sp=rwdlaciytf&se=2023-05-19T17:11:45Z&st=2023-05-19T09:11:45Z&spr=https&sig=KA1V2mnBU5xIVkPh0KYF8V60fSeF8fC2UW%2FGcmojIa0%3D" "Program.cs"
+
+.\azcopy copy "https://alexeisa.blob.core.windows.net/myfiles?sv=2022-11-02&ss=b&srt=sco&sp=rwdlaciytf&se=2023-05-19T17:11:45Z&st=2023-05-19T09:11:45Z&spr=https&sig=KA1V2mnBU5xIVkPh0KYF8V60fSeF8fC2UW%2FGcmojIa0%3D" "."  --recursive
+
+
+// copy myfiles between two storage accounts
+.\azcopy copy "https://alexeisa.blob.core.windows.net/myfiles?sv=2022-11-02&ss=b&srt=sco&sp=rwdlaciytf&se=2023-05-19T17:11:45Z&st=2023-05-19T09:11:45Z&spr=https&sig=KA1V2mnBU5xIVkPh0KYF8V60fSeF8fC2UW%2FGcmojIa0%3D" "https://azcopydestination1000.blob.core.windows.net/myfiles?sv=2022-11-02&ss=b&srt=sco&sp=rwdlaciytf&se=2023-05-19T17:11:45Z&st=2023-05-19T09:11:45Z&spr=https&sig=KA1V2mnBU5xIVkPh0KYF8V60fSeF8fC2UW%2FGcmojIa0%3D" --recursive
+
