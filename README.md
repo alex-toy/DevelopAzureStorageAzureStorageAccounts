@@ -1,12 +1,13 @@
 # Develop for Azure Storage - Azure Storage Accounts
 
+## Storage Account
 
-## Create Storage Account
+### Create Storage Account
 
 <img src="/pictures/create_storage_account.png" title="create storage account"  width="900">
 
 
-## Blob Service
+### Blob Service
 
 - create container with private access level
 <img src="/pictures/create_container.png" title="create container"  width="900">
@@ -21,7 +22,7 @@
 - set the access level as blob in order to access it by url 
 
 
-## Access Keys
+### Access Keys
 
 - in the *Access Keys* section, grab the key1
 <img src="/pictures/access_keys.png" title="access keys"  width="900">
@@ -36,7 +37,7 @@
 <img src="/pictures/access_keys4.png" title="access keys"  width="900">
 
 
-## Shared Access Signatures - Blob
+### Shared Access Signatures - Blob
 
 - choose a blob that has private access, and go to the *Generate SAS* section. It will generate a unique signature for accessing that particular blob.
 <img src="/pictures/sas.png" title="shared access signatures"  width="900">
@@ -44,7 +45,7 @@
 - you can grab the generated url to access that object
 
 
-## Shared Access Signatures - Storage Account Level
+### Shared Access Signatures - Storage Account Level
 
 - at the storage account level, go to the *Shared Access Signature* section
 <img src="/pictures/sas_storage_account.png" title="shared access signatures - storage account level"  width="900">
@@ -66,13 +67,13 @@
 <img src="/pictures/sas_storage_account5.png" title="shared access signatures - storage account level"  width="900">
 
 
-## Stored Access policies
+### Stored Access policies
 
 - inside a container, go to the *Access Policy* section and clic *Add a policy* for *stored Access Policies*
 <img src="/pictures/sap.png" title="stored access policy"  width="900">
 
 
-## Azure Active Directory Authentication
+### Azure Active Directory Authentication
 
 - inside Azure Active Directory, create a user
 
@@ -85,7 +86,7 @@
 - in *Microsoft Azure Storage Explorer*, connect through the newly created user
 
 
-## Creating a Container
+### Creating a Container
 
 - in visual studio, create a console app and install following packages :
 ```
@@ -93,7 +94,7 @@ Azure.Storage.Blobs
 ```
 
 
-## Metadata
+### Metadata
 
 - let's add some metadata to our blob
 <img src="/pictures/metadata.png" title="metadata"  width="900">
@@ -102,7 +103,7 @@ Azure.Storage.Blobs
 <img src="/pictures/metadata2.png" title="metadata"  width="900">
 
 
-## Storage Lease
+### Storage Lease
 
 - acquire a lease on a blob on the azure portal. A lease acts like a sepaphore
 <img src="/pictures/lease.png" title="lease"  width="900">
@@ -110,13 +111,13 @@ Azure.Storage.Blobs
 - you can as well break the lease on the portal
 
 
-## ARM Template
+### ARM Template
 
 - create a template : *Template deployment*, then *Build your own template*
 <img src="/pictures/arm.png" title="ARM tempalte"  width="500">
 
 
-## Az Copy tool
+### Az Copy tool
 
 - get a SAS 
 <img src="/pictures/copy_tool.png" title="Az Copy tool"  width="900">
@@ -130,7 +131,7 @@ Azure.Storage.Blobs
 <img src="/pictures/copy_tool4.png" title="Az Copy tool"  width="900">
 
 
-## Azure File Share
+### Azure File Share
 
 It's the concept of sharing files between multiple users.
 
@@ -141,3 +142,9 @@ It's the concept of sharing files between multiple users.
 <img src="/pictures/file_share2.png" title="file share"  width="900">
 
 
+## Table Storage
+
+### Azure Table Storage
+
+<img src="/pictures/table_storage.png" title="table storage"  width="900">
+<img src="/pictures/table_storage1.png" title="table storage"  width="900">
