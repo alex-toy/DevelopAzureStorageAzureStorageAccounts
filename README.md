@@ -170,3 +170,22 @@ Microsoft.Azure.Cosmos.Table
 
 - delete entities
 <img src="/pictures/add_entity5.png" title="delete entity"  width="900">
+
+
+## Queue Service
+
+### Azure Queue Storage in the Azure Portal
+
+- create a queue and add a message into it
+<img src="/pictures/queue_storage.png" title="queue storage"  width="900">
+<img src="/pictures/queue_storage2.png" title="queue storage"  width="900">
+
+### Create Queue programmatically
+
+- install package
+```
+Azure.Storage.Queues
+```
+
+- add Entity 
+<img src="/pictures/add_entity.png" title="add entity"  width="900">
