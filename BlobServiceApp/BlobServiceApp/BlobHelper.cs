@@ -1,6 +1,7 @@
 ﻿using Azure;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
+using Azure.Storage.Sas;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,63 +11,90 @@ namespace BlobServiceApp
     public class BlobHelper
     {
         private string _connectionString = "";
-        public BlobServiceClient _blobServiceClient { get; set; }
+        public BlobServiceClient _storageAccount { get; set; }
 
         public BlobHelper(string connectionString)
         {
             _connectionString = connectionString;
-            _blobServiceClient = new BlobServiceClient(_connectionString);
+            _storageAccount = new BlobServiceClient(_connectionString);
         }
 
         public void CreateContainer(string _containerName)
         {
-            _blobServiceClient.CreateBlobContainer(_containerName);
+            _storageAccount.CreateBlobContainer(_containerName);
         }
 
         public void UploadBlob(string containerName, string localFilePath)
         {
-            BlobContainerClient blobContainerClient = _blobServiceClient.GetBlobContainerClient(containerName);
+            BlobContainerClient container = _storageAccount.GetBlobContainerClient(containerName);
 
             string fileName = Path.GetFileName(localFilePath);
-            BlobClient blobClient = blobContainerClient.GetBlobClient(fileName);
+            BlobClient blobClient = container.GetBlobClient(fileName);
 
             blobClient.Upload(localFilePath, true);
         }
 
-        public void DownloadBlob(string _containerName, string localFilePath)
+        public void DownloadBlob(string containerName, string localFilePath)
         {
-            BlobContainerClient blobContainerClient = _blobServiceClient.GetBlobContainerClient(_containerName);
+            BlobContainerClient container = _storageAccount.GetBlobContainerClient(containerName);
 
             string fileName = Path.GetFileName(localFilePath);
-            BlobClient blobClient = blobContainerClient.GetBlobClient(fileName);
+            BlobClient blobClient = container.GetBlobClient(fileName);
 
             blobClient.DownloadTo(localFilePath);
         }
 
-        public void ListBlobs(string containerName, int? segmentSize)
+        public List<string> ListBlobs(string containerName, int? segmentSize)
         {
-            BlobContainerClient blobContainerClient = _blobServiceClient.GetBlobContainerClient(containerName);
+            List<string> blobs = new List<string>();
+            BlobContainerClient container = _storageAccount.GetBlobContainerClient(containerName);
             try
             {
-                var resultSegment = blobContainerClient.GetBlobs().AsPages(default, segmentSize);
+                var resultSegment = container.GetBlobs().AsPages(default, segmentSize);
 
-                // Enumerate the blobs returned for each page.
                 foreach (Page<BlobItem> blobPage in resultSegment)
                 {
                     foreach (BlobItem blobItem in blobPage.Values)
                     {
-                        Console.WriteLine("Blob name: {0}", blobItem.Name);
+                        blobs.Add(blobItem.Name);
                     }
-
-                    Console.WriteLine();
                 }
             }
             catch (RequestFailedException e)
             {
                 Console.WriteLine(e.Message);
-                Console.ReadLine();
                 throw;
             }
+
+            return blobs;
+        }
+
+        public void DownloadBlobSas(string containerName, string localFilePath)
+        {
+            BlobContainerClient container = _storageAccount.GetBlobContainerClient(containerName);
+
+            string fileName = Path.GetFileName(localFilePath);
+            BlobClient blobClient = container.GetBlobClient(fileName);
+
+            Uri blobUri = GenerateSAS(blobClient, containerName, fileName);
+
+            BlobClient blobClient1 = new BlobClient(blobUri);
+            blobClient1.DownloadTo(localFilePath);
+        }
+
+        private Uri GenerateSAS(BlobClient blobClient, string containerName, string fileName)
+        {
+            BlobSasBuilder builder = new BlobSasBuilder()
+            {
+                BlobContainerName = containerName,
+                BlobName = fileName,
+                Resource = "b"
+            };
+
+            builder.SetPermissions(BlobSasPermissions.Read | BlobSasPermissions.List);
+            builder.ExpiresOn = DateTimeOffset.UtcNow.AddHours(1);
+
+            return blobClient.GenerateSasUri(builder);
         }
     }
 }
