@@ -36,8 +36,16 @@ namespace BlobServiceApp
             //blobHelper.DownloadBlobSas(containerName, localFilePath);
 
 
+            //string blobName = "ad.png";
+            //blobHelper.GetProperties(containerName, blobName);
+
+
             string blobName = "ad.png";
-            blobHelper.GetProperties(containerName, blobName);
+            IDictionary<string, string> metadata = blobHelper.GetMetadata(containerName, blobName);
+            foreach(var item in metadata)
+            {
+                Console.WriteLine($"{item.Key} -> {item.Value}");
+            }
 
 
             Console.ReadKey();

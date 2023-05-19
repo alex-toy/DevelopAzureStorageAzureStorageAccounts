@@ -38,19 +38,19 @@ namespace BlobServiceApp
             blobClient.DownloadTo(localFilePath);
         }
 
-        public void GetProperties(string containerName, string blobName)
+        public BlobProperties GetProperties(string containerName, string blobName)
         {
             BlobClient blobClient = GetBlobClient(containerName, blobName);
 
-            Response properties = blobClient.GetProperties().GetRawResponse();
-            Console.WriteLine(properties.ToString());
+            BlobProperties properties = blobClient.GetProperties().Value;
+            return properties;
         }
 
-        private BlobClient GetBlobClient(string containerName, string blobName)
+        public IDictionary<string, string> GetMetadata(string containerName, string blobName)
         {
-            BlobContainerClient container = _storageAccount.GetBlobContainerClient(containerName);
-            BlobClient blobClient = container.GetBlobClient(blobName);
-            return blobClient;
+            BlobProperties properties = GetProperties(containerName, blobName);
+            IDictionary<string, string> metadata = properties.Metadata;
+            return metadata;
         }
 
         public List<string> ListBlobs(string containerName, int? segmentSize)
@@ -106,12 +106,10 @@ namespace BlobServiceApp
             return blobClient.GenerateSasUri(builder);
         }
 
-        private BlobClient GetBlobClientOld(string containerName, string localFilePath)
+        private BlobClient GetBlobClient(string containerName, string blobName)
         {
             BlobContainerClient container = _storageAccount.GetBlobContainerClient(containerName);
-
-            string fileName = Path.GetFileName(localFilePath);
-            BlobClient blobClient = container.GetBlobClient(fileName);
+            BlobClient blobClient = container.GetBlobClient(blobName);
             return blobClient;
         }
     }

@@ -93,7 +93,9 @@ Azure.Storage.Blobs
 ```
 
 
-## Properties
+## Metadata
 
-- 
+- let's add some metadata to our blob
+<img src="/pictures/metadata.png" title="azure active directory"  width="900">
+
 
