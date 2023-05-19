@@ -107,5 +107,13 @@ Azure.Storage.Blobs
 - acquire a lease on a blob on the azure portal. A lease acts like a sepaphore
 <img src="/pictures/lease.png" title="lease"  width="900">
 
+- you can as well break the lease on the portal
+
+
+## ARM Template
+
+- create a template : *Template deployment*, then *Build your own template*
+<img src="/pictures/arm.png" title="ARM tempalte"  width="500">
+
 
 
