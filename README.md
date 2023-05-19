@@ -148,3 +148,13 @@ It's the concept of sharing files between multiple users.
 
 <img src="/pictures/table_storage.png" title="table storage"  width="900">
 <img src="/pictures/table_storage1.png" title="table storage"  width="900">
+
+### Create Table programmatically
+
+- install package
+```
+Microsoft.Azure.Cosmos.Table
+```
+
+- create Entity programmatically
+<img src="/pictures/add_entity.png" title="add entity"  width="900">
