@@ -26,22 +26,31 @@ namespace BlobServiceApp
 
         public void UploadBlob(string containerName, string localFilePath)
         {
-            BlobContainerClient container = _storageAccount.GetBlobContainerClient(containerName);
-
             string fileName = Path.GetFileName(localFilePath);
-            BlobClient blobClient = container.GetBlobClient(fileName);
-
+            BlobClient blobClient = GetBlobClient(containerName, fileName);
             blobClient.Upload(localFilePath, true);
         }
 
         public void DownloadBlob(string containerName, string localFilePath)
         {
-            BlobContainerClient container = _storageAccount.GetBlobContainerClient(containerName);
-
             string fileName = Path.GetFileName(localFilePath);
-            BlobClient blobClient = container.GetBlobClient(fileName);
-
+            BlobClient blobClient = GetBlobClient(containerName, fileName);
             blobClient.DownloadTo(localFilePath);
+        }
+
+        public void GetProperties(string containerName, string blobName)
+        {
+            BlobClient blobClient = GetBlobClient(containerName, blobName);
+
+            Response properties = blobClient.GetProperties().GetRawResponse();
+            Console.WriteLine(properties.ToString());
+        }
+
+        private BlobClient GetBlobClient(string containerName, string blobName)
+        {
+            BlobContainerClient container = _storageAccount.GetBlobContainerClient(containerName);
+            BlobClient blobClient = container.GetBlobClient(blobName);
+            return blobClient;
         }
 
         public List<string> ListBlobs(string containerName, int? segmentSize)
@@ -95,6 +104,15 @@ namespace BlobServiceApp
             builder.ExpiresOn = DateTimeOffset.UtcNow.AddHours(1);
 
             return blobClient.GenerateSasUri(builder);
+        }
+
+        private BlobClient GetBlobClientOld(string containerName, string localFilePath)
+        {
+            BlobContainerClient container = _storageAccount.GetBlobContainerClient(containerName);
+
+            string fileName = Path.GetFileName(localFilePath);
+            BlobClient blobClient = container.GetBlobClient(fileName);
+            return blobClient;
         }
     }
 }
