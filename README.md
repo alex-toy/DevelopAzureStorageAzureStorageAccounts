@@ -156,5 +156,17 @@ It's the concept of sharing files between multiple users.
 Microsoft.Azure.Cosmos.Table
 ```
 
-- create Entity programmatically
+- add Entity 
 <img src="/pictures/add_entity.png" title="add entity"  width="900">
+
+- add Entities in a batch
+<img src="/pictures/add_entity2.png" title="add entity"  width="900">
+
+- read entities
+<img src="/pictures/add_entity3.png" title="read entity"  width="900">
+
+- update entities
+<img src="/pictures/add_entity4.png" title="update entity"  width="900">
+
+- delete entities
+<img src="/pictures/add_entity5.png" title="delete entity"  width="900">

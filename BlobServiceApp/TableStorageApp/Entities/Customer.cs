@@ -6,6 +6,11 @@ namespace TableStorageApp.Entities
     {
         public string Name { get; set; }
 
+        public Customer()
+        {
+
+        }
+
         public Customer(string name, string city, string customerId)
         {
             Name = name;

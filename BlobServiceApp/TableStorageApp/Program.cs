@@ -1,5 +1,6 @@
 ﻿using AzureStorage;
 using System;
+using System.Collections.Generic;
 using TableStorageApp.Entities;
 
 namespace TableStorageApp
@@ -17,8 +18,29 @@ namespace TableStorageApp
             //tableStorage.CreateTable(tableName);
 
 
-            Customer customer = new Customer("alex", "lyon", "C1");
-            tableStorage.AddEntity(tableName, customer);
+            //Customer customer = new Customer("jérémie", "genève", "C4");
+            //tableStorage.AddEntity(tableName, customer);
+
+
+            //List<Customer> customers = new List<Customer>
+            //{
+            //    new Customer("alex", "paris", "C5"),
+            //    new Customer("seb", "paris", "C6"),
+            //    new Customer("kate", "paris", "C7"),
+            //};
+            //tableStorage.AddEntities(tableName, customers);
+
+
+            //Customer customer = tableStorage.GetEntity<Customer>(tableName, "lyon", "C2");
+            //Console.WriteLine($"The client with customerId {customer.RowKey} is called {customer.Name}");
+
+
+            //Customer customer = new Customer("mathieux", "genève", "C4");
+            //tableStorage.UpdateEntity<Customer>(tableName, customer);
+
+
+            Customer customer = tableStorage.GetEntity<Customer>(tableName, "lyon", "C2");
+            tableStorage.DeleteEntity<Customer>(tableName, customer);
         }
     }
 }
