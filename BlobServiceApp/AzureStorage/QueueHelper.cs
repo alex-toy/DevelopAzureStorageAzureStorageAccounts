@@ -1,4 +1,5 @@
 ﻿using Azure.Storage.Queues;
+using Azure.Storage.Queues.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,6 +27,18 @@ namespace AzureStorage
         public void SendMessage(string message)
         {
             _queue.SendMessage(message);
+        }
+
+        public PeekedMessage[] PeekMessages(int nbOfMessages = 1)
+        {
+            PeekedMessage[] messages = _queue.PeekMessages(nbOfMessages);
+            return messages;
+        }
+
+        public QueueMessage ReceiveMessage()
+        {
+            QueueMessage message = _queue.ReceiveMessage();
+            return message;
         }
     }
 }

@@ -188,7 +188,21 @@ Azure.Storage.Queues
 ```
 
 - create queue
-<img src="/pictures/queue.png" title="add entity"  width="900">
+<img src="/pictures/queue.png" title="queue"  width="900">
 
 - add messages to the queue
-<img src="/pictures/queue1.png" title="add entity"  width="900">
+<img src="/pictures/queue1.png" title="queue"  width="900">
+
+- peek messages. You can read messages but leave them on the queue for later processing
+<img src="/pictures/queue2.png" title="queue"  width="900">
+
+- receive messages. This will pop a message off the queue
+<img src="/pictures/queue3.png" title="queue"  width="900">
+
+
+## Queue Trigger
+
+### Create Azure Function
+
+- choose *Queue Trigger*
+<img src="/pictures/azure_function.png" title="azure function"  width="900">
