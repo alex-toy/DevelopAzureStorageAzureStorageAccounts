@@ -14,7 +14,7 @@ namespace StorageQueueApp
 
             //queue.CreateQueue();
 
-            //for(int i = 0; i < 5; i++) queue.SendMessage($"message {i}");
+            for (int i = 0; i < 5; i++) queue.SendMessage($"This is the message number {i}.");
 
             //PeekedMessage[] messages = queue.PeekMessages(3);
             //foreach (var message in messages)
@@ -22,8 +22,8 @@ namespace StorageQueueApp
             //    Console.WriteLine($"{message.MessageId} - {message.InsertedOn} - {message.Body.ToString()}");
             //}
 
-            QueueMessage message = queue.ReceiveMessage();
-            Console.WriteLine($"{message.MessageId} - {message.InsertedOn} - {message.Body.ToString()}");
+            //QueueMessage message = queue.ReceiveMessage();
+            //Console.WriteLine($"{message.MessageId} - {message.InsertedOn} - {message.Body.ToString()}");
 
         }
     }

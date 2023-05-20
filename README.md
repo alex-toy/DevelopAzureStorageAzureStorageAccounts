@@ -206,3 +206,17 @@ Azure.Storage.Queues
 
 - choose *Queue Trigger*
 <img src="/pictures/azure_function.png" title="azure function"  width="900">
+
+When you run the *GetMessages* function, you get a lot of errors and a new queue is automatically created.
+<img src="/pictures/azure_function2.png" title="azure function"  width="900">
+
+This is because we need to base-64 encode our messages. Let's encode our messages before sending them to the queue
+<img src="/pictures/azure_function3.png" title="azure function"  width="900">
+
+and run our queue trigger again and successfully retrieve our messages by means of an azure function.
+<img src="/pictures/azure_function4.png" title="azure function"  width="900">
+
+
+
+
+

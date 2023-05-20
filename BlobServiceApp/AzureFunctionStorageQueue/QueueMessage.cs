@@ -5,9 +5,9 @@ using Microsoft.Extensions.Logging;
 
 namespace AzureFunctionStorageQueue
 {
-    public class Function1
+    public class QueueMessage
     {
-        [FunctionName("Function1")]
+        [FunctionName("GetMessages")]
         public void Run([QueueTrigger("appqueue", Connection = "storage-connection-string")]string myQueueItem, ILogger log)
         {
             log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");

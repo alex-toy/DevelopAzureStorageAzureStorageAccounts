@@ -26,7 +26,9 @@ namespace AzureStorage
 
         public void SendMessage(string message)
         {
-            _queue.SendMessage(message);
+            byte[] messageBytes = System.Text.Encoding.UTF8.GetBytes(message);
+            string messageBase64 = System.Convert.ToBase64String(messageBytes);
+            _queue.SendMessage(messageBase64);
         }
 
         public PeekedMessage[] PeekMessages(int nbOfMessages = 1)
