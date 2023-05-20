@@ -216,6 +216,26 @@ This is because we need to base-64 encode our messages. Let's encode our message
 and run our queue trigger again and successfully retrieve our messages by means of an azure function.
 <img src="/pictures/azure_function4.png" title="azure function"  width="900">
 
+### Table Output
+
+- add a table *Orders*
+<img src="/pictures/table_output.png" title="table output"  width="900">
+
+- run the function. It is now waiting for messages on the queue
+<img src="/pictures/table_output2.png" title="table output"  width="900">
+
+- add a message on the queue
+<img src="/pictures/table_output3.png" title="table output"  width="900">
+
+- the message will be immediately processed
+<img src="/pictures/table_output4.png" title="table output"  width="900">
+
+and has disappeared from the queue
+<img src="/pictures/table_output5.png" title="table output"  width="900">
+
+and is now available on the *Orders* table
+<img src="/pictures/table_output6.png" title="table output"  width="900">
+
 
 
 

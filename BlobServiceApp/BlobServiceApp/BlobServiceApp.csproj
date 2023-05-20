@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AzureStorage\AzureStorage.csproj" />
+    <ProjectReference Include="..\AzureStorage\AzureStorageHelpers.csproj" />
   </ItemGroup>
 
 </Project>
