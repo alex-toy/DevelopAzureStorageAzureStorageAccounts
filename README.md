@@ -187,5 +187,8 @@ Microsoft.Azure.Cosmos.Table
 Azure.Storage.Queues
 ```
 
-- add Entity 
-<img src="/pictures/add_entity.png" title="add entity"  width="900">
+- create queue
+<img src="/pictures/queue.png" title="add entity"  width="900">
+
+- add messages to the queue
+<img src="/pictures/queue1.png" title="add entity"  width="900">

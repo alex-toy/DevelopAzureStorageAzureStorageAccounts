@@ -17,5 +17,15 @@ namespace AzureStorage
             _queueName = queueName;
             _queue = new QueueClient(_connectionString, _queueName);
         }
+
+        public void CreateQueue()
+        {
+            _queue.CreateIfNotExists();
+        }
+
+        public void SendMessage(string message)
+        {
+            _queue.SendMessage(message);
+        }
     }
 }
